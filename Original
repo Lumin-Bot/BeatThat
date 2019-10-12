@@ -1,0 +1,51 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+int main() {
+	srand(time(0));
+	cout << "Welcome to Beat That++!" << endl;
+	int allowance = 10;
+	string nextdice;
+	while(allowance > 0){
+		int compDice1 = rand() % 6 + 1, compDice2 = rand() % 6 + 1;
+		if(compDice1 > compDice2){
+			cout << "The Computer rolled " << compDice1 << " and " << compDice2 <<", so the score is " <<
+					compDice1 << compDice2 << "..." << endl;
+		}
+		if(compDice2 > compDice1){
+			cout << "The Computer rolled " << compDice1 << " and " << compDice2 <<", so the score is " <<
+								compDice2 << compDice1 << "..." << endl;
+		}
+		int dice1 = rand() % 6 + 1, dice2 = rand() % 6 + 1;
+		cout << "You rolled " << dice1 << ", roll again?";
+		cin >> nextdice;
+		while(true){
+			if(nextdice == "y" || nextdice == "Y"){
+				if(dice1 > dice2){
+				cout << "You rolled " << dice1 << " and " << dice2 <<", so the score is " <<
+						dice1 << dice2 << endl;
+				break;
+			}
+				if(dice2 > dice1){
+				cout << "You rolled " << dice1 << " and " << dice2 <<", so the score is " <<
+									dice2 << dice1 << endl;
+				break;
+			}
+		}
+			if(nextdice == "n" || nextdice == "N"){
+				cout << "You rolled " << dice1 << " and " << dice1 << ", so the score is " << dice1 << dice1 << endl;
+				break;
+		}
+			else {
+				cout << "** Oops type 'y/Y' or 'n/N'" << endl;
+				break;
+			}
+		}
+		
+	}
+
+	return 0;
+
+}
